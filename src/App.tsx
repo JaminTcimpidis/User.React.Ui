@@ -1,13 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
+import { UserListComponent } from './user/user-list';
+import { AddUserComponent } from './user/add-user';
 import './App.css';
-import { UserComponent } from './user-component';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <UserComponent />
+        <UserListComponent />
       </header>
     </div>
   );
