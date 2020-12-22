@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { User } from '../../dtos/user.dtos';
-import useHydrateUserState from './get-all-user-hook';
 
 const useCreateUserForm = (callback: any) => {
   const newUser = {
@@ -8,6 +7,7 @@ const useCreateUserForm = (callback: any) => {
     lastName: "",
     email: ""
   } as User
+  
   const [inputs, setInputs] = useState({
     ...newUser
   } as User);

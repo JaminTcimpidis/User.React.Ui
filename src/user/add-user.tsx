@@ -16,14 +16,13 @@ export const AddUserComponent = (props: AddUserProps) => {
       email: inputs.email,
       id: 0
     };
-
     await AddUser(user);
     props.reloadUser();
   }
 
   const {inputs, handleInputChange, handleSubmit} = useCreateUserForm(createUser); 
     return( 
-      <form className="add-user-card">
+      <form onSubmit={handleSubmit} className="add-user-card">
         <div className="text">
           <label>First Name</label>
           <input className="rounded" type="text" name="firstName" onChange={handleInputChange} value={inputs.firstName} required />
@@ -44,7 +43,7 @@ export const AddUserComponent = (props: AddUserProps) => {
           <label>Re-enter Password</label>
           <input type="password" name="password2" onChange={handleInputChange} value={inputs.password2}/>
         </div> */}
-        <button className="rounded" type="submit" onClick={handleSubmit}>Sign Up</button>
+        <button className="rounded" type="submit">Sign Up</button>
       </form>
     )
 }
