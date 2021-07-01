@@ -1,43 +1,46 @@
 import React, { useEffect, useState } from 'react';
-import { GetUsers } from '../api/userContext';
+import { GetUsers } from '../api/user';
 import { UserComponent }  from './user';
 import { User } from '../../dtos/user.dtos';
 import { AddUserComponent } from './add-user';
 import './user.scss'
+import { DeleteUser } from '../api/user';
 
 export const UserListComponent = () => {
-    const [appState, setAppState] = useState({
-      userList: [] as User[],
-      loading: false,
-    });
+    const [isloading, setIsLoading] = useState(false);
+    const [userList, setUserList] = useState([] as User[])
+  
 
     useEffect(() => {
-      setAppState({ loading: true, userList: [] })
-      getUsers()
-    },[setAppState]);
+      setIsLoading(true);
+      getUsers();
+      setIsLoading(false);
+    },[userList]);
 
     const getUsers = () => {
       GetUsers()
       .then(res => {
-        setAppState({
-          userList: res,
-          loading: false,
-        })
+        setUserList(res)
       });
     }
 
+    const deleteUser = async (userId: number) => {
+      await DeleteUser(userId)
+    }
+
     const renderUsers = (): JSX.Element[] => {
-      return appState.userList.map(user => {
+      return userList.map(user => {
         return(
-          <UserComponent user={user} key={user.id}/>
+          <UserComponent deleteUser={deleteUser} user={user} key={user.id} />
         )
     }
       );
     }
+
     return( 
       <div>
-        <AddUserComponent reloadUser={getUsers}/>
         <div className="header">
+          <AddUserComponent reloadUser={getUsers}/>
           <span>Hey welcome. Here are the users</span>
         </div>
         <div className="container">

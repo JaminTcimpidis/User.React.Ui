@@ -1,5 +1,5 @@
 import React from 'react';
-import { AddUser } from '../api/userContext';
+import { AddUser } from '../api/user';
 import useCreateUserForm from '../hooks/create-user-hook';
 import { User } from '../../dtos/user.dtos';
 
@@ -7,20 +7,8 @@ export interface AddUserProps {
   reloadUser: () => void
 }
 
-
 export const AddUserComponent = (props: AddUserProps) => {
-  const createUser = async () => {
-    const user : User = {
-      firstName :inputs.firstName,
-      lastName : inputs.lastName,
-      email: inputs.email,
-      id: 0
-    };
-    await AddUser(user);
-    props.reloadUser();
-  }
-
-  const {inputs, handleInputChange, handleSubmit} = useCreateUserForm(createUser); 
+  const {inputs, handleInputChange, handleSubmit} = useCreateUserForm(props.reloadUser); 
     return( 
       <form onSubmit={handleSubmit} className="add-user-card">
         <div className="text">
