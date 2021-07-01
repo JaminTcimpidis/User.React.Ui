@@ -1,21 +1,29 @@
 import React, { useState } from 'react';
-import { User } from '../../dtos/user.dtos';
+import { CreateUserRequest } from '../../dtos/user.dtos';
+import { AddUser } from '../api/user';
 
 const useCreateUserForm = (callback: any) => {
   const newUser = {
     firstName: "",
     lastName: "",
     email: ""
-  } as User
-  
+  } as CreateUserRequest
+
   const [inputs, setInputs] = useState({
     ...newUser
-  } as User);
+  } as CreateUserRequest);
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = async (event: any) => {
     if (event) {
       event.preventDefault();
     }
+    const user : CreateUserRequest = {
+      firstName :inputs.firstName,
+      lastName : inputs.lastName,
+      email: inputs.email,
+    };
+
+    await AddUser(user);
     callback();
     setInputs({...newUser})
   }

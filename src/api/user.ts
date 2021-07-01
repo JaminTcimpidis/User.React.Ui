@@ -1,5 +1,4 @@
-import { useReducer } from 'react';
-import { User } from '../../dtos/user.dtos'
+import { CreateUserRequest, User } from '../../dtos/user.dtos'
 
 export const GetUsers = async (): Promise<User[]> => {
     const apiUrl = "https://localhost:41120/user/get"
@@ -16,18 +15,13 @@ export const GetUsers = async (): Promise<User[]> => {
     return response;
 }
 
-export const AddUser = async (user: User): Promise<number> => {
-  const CreateUserRequest = {
-    FirstName: user.firstName,
-    LastName: user.lastName,
-    email: user.email,
-  }
+export const AddUser = async (request: CreateUserRequest): Promise<number> => {
   const apiUrl = "https://localhost:41120/user/post";
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ ...CreateUserRequest })
-};
+    body: JSON.stringify({ ...request })
+  };
   let response = 0;
   await fetch(apiUrl, requestOptions)
       .then((res) => res.json())
@@ -39,4 +33,18 @@ export const AddUser = async (user: User): Promise<number> => {
       });
 
   return response;
+}
+
+export const DeleteUser = async (userId: number): Promise<void> => {
+  const apiUrl = `https://localhost:41120/user/delete?userId=${userId}`;
+  const requestOptions = {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' }
+  };
+
+  await fetch(apiUrl, requestOptions)
+      .then()
+      .catch((error) => {
+        console.error('Error:', error)
+      });
 }
