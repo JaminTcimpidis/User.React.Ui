@@ -1,13 +1,26 @@
 import React from 'react';
 import { UserListComponent } from './user/user-list';
+import { HomeComponent } from './home/home' 
+import { Switch, Route, HashRouter } from 'react-router-dom';
+import AuthedRoute from './auth/authedRoute'
+import Header from './home/header';
+import Login from './home/login';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <UserListComponent />
-      </header>
+      <HashRouter>
+        <Header />
+        <div className="container">
+          <Switch>
+            <Route path="/login" component={Login} />
+            <Route path="/" exact component={HomeComponent} />
+            {/* <Route path="/" component={LoginCallback} /> */}
+            <AuthedRoute path="/user-list" component={UserListComponent} />
+          </Switch>
+        </div>
+      </HashRouter>
     </div>
   );
 }

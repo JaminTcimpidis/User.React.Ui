@@ -10,11 +10,11 @@ export interface UserComponentProps {
 export const UserComponent = (props : UserComponentProps) => {
   return( 
     <div className="card item">
-      <div className="text">
+      <div className="user-header">
         <strong>#{props.user.id}</strong>
         <hr></hr>
       </div>
-      <div className= "text">
+      <div className= "user-container">
         <div>Name: {props.user.firstName} {props.user.lastName}</div>
         <div>Email: {props.user.email}</div>
       </div>
