@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
     "oAuthClientId": "0oa14df8zgVzar4yy5d7",
     "oAuthDomain": "https://dev-39440618.okta.com/oauth2/default",
     "redirectUri": "https://localhost:3000/",
@@ -8,7 +7,4 @@
     "disableHttpsCheck": false,
     "userApiUrl": "https/localhost:41120",
     "websiteUrl": "https/localhost:3000/#/"
-=======
-    "userApiUrl": "Https/localhost:41120"
->>>>>>> development
 }

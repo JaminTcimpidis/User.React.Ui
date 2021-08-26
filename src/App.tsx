@@ -1,13 +1,10 @@
 import React from 'react';
 import { UserListComponent } from './user/user-list';
-<<<<<<< HEAD
 import { HomeComponent } from './home/home' 
 import { Switch, Route, HashRouter } from 'react-router-dom';
 import AuthedRoute from './auth/authedRoute'
 import Header from './home/header';
 import Login from './home/login';
-=======
->>>>>>> development
 import './App.css';
 
 const App = () => {
@@ -19,7 +16,6 @@ const App = () => {
           <Switch>
             <Route path="/login" component={Login} />
             <Route path="/" exact component={HomeComponent} />
-            {/* <Route path="/" component={LoginCallback} /> */}
             <AuthedRoute path="/user-list" component={UserListComponent} />
           </Switch>
         </div>
