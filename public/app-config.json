@@ -1,3 +1,10 @@
 {
-    "userApiUrl": "Https/localhost:41120"
+    "oAuthClientId": "",
+    "oAuthDomain": "",
+    "redirectUri": "https://localhost:3000/",
+    "scopes": "['openid', 'profile', 'email']",
+    "pkce": true,
+    "disableHttpsCheck": false,
+    "userApiUrl": "https/localhost:41120",
+    "websiteUrl": "https/localhost:3000/#/"
 }

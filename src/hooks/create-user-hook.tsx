@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { CreateUserRequest } from '../../dtos/user.dtos';
 import { AddUser } from '../api/user';
 
-const useCreateUserForm = (callback: any) => {
+export const useCreateUserForm = (callback: any) => {
   const newUser = {
     firstName: "",
     lastName: "",
@@ -38,5 +38,3 @@ const useCreateUserForm = (callback: any) => {
     inputs
   };
 }
-
-export default useCreateUserForm;
