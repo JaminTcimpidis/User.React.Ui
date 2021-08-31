@@ -3,7 +3,6 @@ import { Redirect } from 'react-router-dom';
 import { getRedirectUrl } from '../auth/utils';
 import { useAuth } from '../hooks/useAuth';
 import { useConfig } from '../hooks/useConfig';
-import profile_image from '../assets/profile_image.jpeg';
 import profile_1 from '../assets/profile_1.png'
 import './home.scss';
 
@@ -65,6 +64,10 @@ export const HomeComponent = () => {
 
   return (
     <div>
+<<<<<<< HEAD
+=======
+      <h1>Jamin's home screen. This so far is a test. I am not sure what I should create as of yet</h1>
+>>>>>>> development
       {renderHomeScreen()}
     </div>
   )

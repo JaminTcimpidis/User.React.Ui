@@ -22,12 +22,16 @@ const configRequst = () => configPromise || (configPromise = (() => {
     result = `${window.location.protocol}//${window.location.host}${result}`;
   }
 
+<<<<<<< HEAD
   if(result.indexOf('#') > -1){
     result = result.split('#')[0];
   }
   else {
     result = result.split('?')[0];
   }
+=======
+  result = result.split('#')[0];
+>>>>>>> development
 
   const pathname = result.slice(result.indexOf(window.location.host) + window.location.host.length)
 
