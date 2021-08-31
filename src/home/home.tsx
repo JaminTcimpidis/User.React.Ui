@@ -64,10 +64,6 @@ export const HomeComponent = () => {
 
   return (
     <div>
-<<<<<<< HEAD
-=======
-      <h1>Jamin's home screen. This so far is a test. I am not sure what I should create as of yet</h1>
->>>>>>> development
       {renderHomeScreen()}
     </div>
   )
