@@ -1,5 +1,50 @@
 .header {
-  background-color: lavender;
-  height: 10%;
-  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(247, 240, 252);
+  height: 60px;
+  padding-right: 15px;
+}
+
+.header-logo {
+  text-align: left;
+  width: 65%;
+}
+
+.header-btn {
+  align-self: flex-end;
+  width: 75%;
+  margin: 35px 19px 19px 19px;
+  background: none;
+  border: none;
+  font-family: Lato,Helvetica Neue,helvetica,sans-serif;
+  font-size: 17px;
+  font-weight: bold;
+  color:rgb(63, 93, 150);
+  cursor: pointer;
+  position: relative; 
+  z-index: 2;
+  text-transform: uppercase;
+} 
+
+.header-btn:after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  opacity: 0;
+  z-index: -1;
+  background-image: linear-gradient(rgb(247, 240, 252)12px, rgb(207, 230, 252)12px);
+}
+
+.header-btn:hover {
+  color: rgb(88, 139, 187);
+  &::after{
+    width: 100%;
+    opacity: 1;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+  }
 }

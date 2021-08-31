@@ -22,7 +22,12 @@ const configRequst = () => configPromise || (configPromise = (() => {
     result = `${window.location.protocol}//${window.location.host}${result}`;
   }
 
-  result = result.split('#')[0];
+  if(result.indexOf('#') > -1){
+    result = result.split('#')[0];
+  }
+  else {
+    result = result.split('?')[0];
+  }
 
   const pathname = result.slice(result.indexOf(window.location.host) + window.location.host.length)
 

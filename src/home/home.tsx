@@ -3,15 +3,40 @@ import { Redirect } from 'react-router-dom';
 import { getRedirectUrl } from '../auth/utils';
 import { useAuth } from '../hooks/useAuth';
 import { useConfig } from '../hooks/useConfig';
+import profile_image from '../assets/profile_image.jpeg';
+import profile_1 from '../assets/profile_1.png'
+import './home.scss';
 
 export const HomeComponent = () => {
   const { isAuthed } = useAuth();
   const { config } = useConfig();
   
   const renderHomeScreen = () => {
+    const profileImage = (
+      <div className="profile">
+        <img src={profile_1} height={591} width={370}></img>
+      </div>
+    )
+
+    const text = (
+      <div className="text">
+          <div className="slogan">
+            <strong>
+              <span className="emphasis">Communicate </span>first,
+              <span className="emphasis"> develop</span> second. Asking the right 
+              <span className="emphasis"> questions</span> for the right 
+              <span className="emphasis"> solutions</span>.
+            </strong> 
+          </div>
+          <div className="pitch">
+            Hire an developer who is passionate about keeping an open line of communication throughout the entire development process. The more we can know, the easier it is to build a solution that works for you. 
+          </div>
+        </div>
+    )
     let render = (
-      <div>
-        <h4>Looks like you're not signed in. You should only be able to see this screen so you probably want to sign in</h4>
+      <div className="home">
+        {profileImage}
+        {text}
       </div>
     )
     if (isAuthed()) {
@@ -28,8 +53,9 @@ export const HomeComponent = () => {
       }
       else {
         render = (
-          <div>
-            <span>You're signed in</span>
+          <div className="home">
+            {profileImage}
+            {text}
           </div>
         )
       }
@@ -39,7 +65,6 @@ export const HomeComponent = () => {
 
   return (
     <div>
-      <h1>Jamin's home screen. This so far is a test. I am not sure what I should create as of yet</h1>
       {renderHomeScreen()}
     </div>
   )
