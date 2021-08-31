@@ -1,14 +1,9 @@
 import React from 'react';
 import { setRedirectUrl } from '../auth/utils';
 import { useAuth } from '../hooks/useAuth';
-<<<<<<< HEAD
 import './header.scss'
-import logo from '../assets/logo.png'
 import tci_logo from '../assets/tci_logo.png';
 
-=======
-import './header'
->>>>>>> development
 
 const Header = () => {
   const { isAuthed, logoutOfOkta, login } = useAuth();
@@ -19,7 +14,6 @@ const Header = () => {
   }
   const renderLoginOrOutButton = ():JSX.Element => {
     let button = (
-<<<<<<< HEAD
       <button className="header-btn" onClick={loginWithOkta}>Sign-in</button>
     )
     if (isAuthed()) {
@@ -56,18 +50,6 @@ const Header = () => {
       <div>
         {renderLoginOrOutButton()}
       </div>
-=======
-      <button onClick={loginWithOkta}>Sign in</button>
-    )
-    if (isAuthed()) {
-      button = <button onClick={logoutOfOkta}>Log out</button>
-    }
-    return button;
-  }
-  return (
-    <header className="header">
-      {renderLoginOrOutButton()}
->>>>>>> development
     </header>
   )
 }

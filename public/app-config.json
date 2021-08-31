@@ -5,11 +5,6 @@
     "scopes": "['openid', 'profile', 'email']",
     "pkce": true,
     "disableHttpsCheck": false,
-<<<<<<< HEAD
     "userApiUrl": "https://localhost:41120",
     "websiteUrl": "https://localhost:3000/#/"
-=======
-    "userApiUrl": "https/localhost:41120",
-    "websiteUrl": "https/localhost:3000/#/"
->>>>>>> development
 }
