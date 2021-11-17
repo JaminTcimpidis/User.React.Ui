@@ -1,0 +1,60 @@
+.introduction {
+  background-image: url(../assets/background.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.shape-bottom {
+  transform: rotateX(180deg) rotateY(180deg);
+  position: absolute;
+  width: 100%;
+  bottom: -1px;
+}
+
+.shape {
+  fill: rgb(228, 233, 255);
+}
+
+.introduction-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: row wrap;
+  position: relative;
+}
+
+.introduction-bio {
+  margin-top: 5%;
+  padding-top: 10%;
+  order: 2;
+}
+
+.introduction-picture{
+  margin-top: 5%;
+  padding: 7% 2%  2% 15%;
+  align-self: left;
+  order:1;
+}
+
+.introduction-slogan {
+  font-family: Lato,Helvetica Neue,helvetica,sans-serif;
+  font-size: 54px;
+  padding: 5% 10% 0 5%;
+  color:rgb(63, 93, 150);
+}
+
+.slogan-emphasis {
+  color:rgb(88, 139, 187);
+}
+
+.introduction-pitch {
+  order: 3;
+  font-family: Lato,Helvetica Neue,helvetica,sans-serif;
+  margin-top: 5%;
+  padding: 0 20% 2% 5%;
+  font-size: 20px;
+  color:rgb(63, 93, 150);
+}
