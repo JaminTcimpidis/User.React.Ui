@@ -1,0 +1,45 @@
+.profile {
+  margin: 0;
+  background-color: rgb(203, 234, 255);
+  position: relative;
+  width: 100%;
+  font-family: Lato,Helvetica Neue,helvetica,sans-serif;
+  padding-top: 5%;
+  color:rgb(63, 93, 150);
+  text-align: center;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: row wrap;
+  position: relative;
+}
+
+.profile-bio {
+  padding: 0 10% 0 7%;
+  align-self: flex-start;
+  text-align: left;
+  font-size: 20px;
+}
+
+ul{
+  padding-left: 3%;
+}
+.skill-header{
+  margin-left: -3%;
+}
+
+.skill-item {
+  padding: 1% 1% 1% 0;
+}
+
+.name{
+  font-size: 54px;
+}
+
+.profile-image {
+  align-self: flex-end;
+  padding-right: 7%;
+}

@@ -1,4 +1,3 @@
-import React from 'react';
 import { renderHook } from '@testing-library/react-hooks';
 import { act } from '@testing-library/react';
 import * as UserApi from '../api/user';
@@ -21,7 +20,7 @@ describe('CreateUserHook', () => {
   });
 
   it('calls handleInputChange updates input ', async () => {
-    let newInputs
+    let newInputs: any;
     const testFirstNameValue = 'newName'
     const callBackMock = jest.fn()
     const hook = renderHook(() => useCreateUserForm(callBackMock));

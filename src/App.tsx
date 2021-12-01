@@ -5,7 +5,7 @@ import { Switch, Route, HashRouter } from 'react-router-dom';
 import AuthedRoute from './auth/authedRoute'
 import Header from './home/header';
 import Login from './home/login';
-import './App.css';
+import './App.scss';
 
 const App = () => {
   return (
