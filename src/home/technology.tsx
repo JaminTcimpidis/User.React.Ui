@@ -17,33 +17,39 @@ export const TechnologyComponent = () => {
       <div className="image-container">
         <img className="image"
         src={oauth_2_logo}
+        alt="oauth"
         height={215}
         width={215}>
         </img>
         <img className="image"
         src={react_logo}
+        alt="react"
         height={215}
         width={215}>
         </img>
         <img className="image"
         src={dotnet_core}
+        alt="dotnet"
         height={215}
         width={215}>
         </img>
         <img className="image"
         src={redux_logo}
+        alt="redux"
         height={215}
         width={215}>
         </img>
         <img className="image"
         height={215}
         width={215}
-        src={mongo_db}>
+        src={mongo_db}
+        alt="mongo">
         </img>
         <img className="image"
         height={215}
         width={215}
-        src={sql}>
+        src={sql}
+        alt="sql">
         </img>
       </div>
     </section>

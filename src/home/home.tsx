@@ -22,7 +22,7 @@ export const HomeComponent = () => {
     if (isAuthed()) {
       const redirectUrl = getRedirectUrl();
       let redirectHash;
-      if (redirectUrl != config.websiteUrl && redirectUrl != `${config.websiteUrl}login`){
+      if (redirectUrl !== config.websiteUrl && redirectUrl !== `${config.websiteUrl}login`){
         const redirectUrlArray: string[] = redirectUrl.split('#', 2);
         if(redirectUrlArray.length === 2){
           redirectHash = redirectUrlArray[1];

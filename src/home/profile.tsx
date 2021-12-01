@@ -22,7 +22,8 @@ export const ProfileComponent = () => {
         </div>
         <div className="profile-image">
           <img
-            src={profile}>
+            src={profile}
+            alt="profile">
           </img>
         </div>
       </div>

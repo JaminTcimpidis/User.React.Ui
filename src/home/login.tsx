@@ -18,7 +18,7 @@ const Login = ():JSX.Element => {
     } else {
       setIsComplete(true);
     }
-  },[]);
+  },[isAuthed, sendToOktaLogin]);
 
   if(!isComplete){
     return <span>loading</span>

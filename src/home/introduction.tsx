@@ -5,7 +5,7 @@ import './introduction.scss'
 export const IntroductionComponent = () => {
   const profileImage = (
     <div className="introduction-picture">
-      <img src={profile_1} height={591} width={370}></img>
+      <img src={profile_1} alt="introduction" height={591} width={370}></img>
     </div>
   )
   const text = (

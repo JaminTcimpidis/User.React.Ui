@@ -63,8 +63,8 @@ export const authenticate = async (appConfig: AppConfig): Authenticate => {
         authClient,
       }
     }
-    catch (err){
-      const message = err.message ? err.message : err.toString();
+    catch (err: any){
+      const message = err?.message ? err?.message : err?.toString();
       return {
         authenticated: false,
         error: {

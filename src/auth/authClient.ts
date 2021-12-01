@@ -69,7 +69,7 @@ const createClient = (config: OAuthConfig, accessToken?: Token, idToken?: Token)
   if(accessToken || idToken) {
     try {
       oktaAuthClient.tokenManager.setTokens({accessToken: accessToken, idToken: idToken } as Tokens);
-    } catch (err){
+    } catch (err: any){
       throw new Error(err);
     }
     
@@ -79,7 +79,7 @@ const createClient = (config: OAuthConfig, accessToken?: Token, idToken?: Token)
     try {
       await oktaAuthClient.tokenManager.renew(key);
     }
-    catch (err) {
+    catch (err: any) {
       client.login();
       throw new Error(err)
     }
@@ -132,7 +132,7 @@ const createClient = (config: OAuthConfig, accessToken?: Token, idToken?: Token)
             const exists = await oktaAuthClient.session.exists();
             if(exists) {
               const session = await oktaAuthClient.session.get();
-              if(session.status != "ACTIVE") {
+              if(session.status !== "ACTIVE") {
                 throw Error("no token in query and session is not active")
               }
               return await refreshTokensWithSession(oktaAuthClient, config, session)
@@ -140,7 +140,7 @@ const createClient = (config: OAuthConfig, accessToken?: Token, idToken?: Token)
             throw Error('no token in query and session did not exist')
           }
         } 
-        catch (err){
+        catch (err: any){
           if(getRetry(authRetryKey) === '3') {
             throw new Error(`exceed maximum retrys. ${err}`)
           }

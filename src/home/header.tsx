@@ -36,7 +36,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-logo">
-        <img src={tci_logo} width={311} height={65}></img>
+        <img src={tci_logo} alt="header" width={311} height={65}></img>
       </div>
       <div>
         <button className="header-btn" onClick={redirectToServices}>Services</button>
