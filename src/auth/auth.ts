@@ -2,7 +2,7 @@ import createClient, { AuthClient } from './authClient';
 import { localStorageAuthKey } from '../constants';
 import { clearStoredJwt, decodeExpirationTime, isAuthed, isStoredTokenValidForOkta, storeJwt } from './utils';
 
-export type Authenticate = Promise<{
+export type AppAuthenticate = Promise<{
   authenticated: boolean;
   error: {
     message: string | null;
@@ -10,9 +10,9 @@ export type Authenticate = Promise<{
   authClient: AuthClient,
 }>;
 
-const Authenticate = Promise;
+const AppAuthenticate = Promise;
 
-export const authenticate = async (appConfig: AppConfig): Authenticate => {
+export const authenticate = async (appConfig: AppConfig): AppAuthenticate => {
   const scopes = ['openid', 'profile', 'email', 'groups'] 
   const hasAccessTokenInParams = window.location.href.includes('?code=');
 
@@ -47,7 +47,7 @@ export const authenticate = async (appConfig: AppConfig): Authenticate => {
     clearStoredJwt();
   }
 
-  const authClient = createClient(appConfig, accessToken, idToken)
+  const authClient = await createClient(appConfig, accessToken, idToken)
 
   authClient.onRenewed((accessToken?: string, identityToken?: string) => {
     storeJwt(accessToken, identityToken);

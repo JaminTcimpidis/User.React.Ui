@@ -41,7 +41,7 @@ export interface Token {
 
 export type AuthData = {accessToken?: string, identityToken?: string } | null;
 
-const createClient = (config: OAuthConfig, accessToken?: Token, idToken?: Token): AuthClient => {
+const createClient = async (config: OAuthConfig, accessToken?: Token, idToken?: Token): Promise<AuthClient> => {
  
   if (!config) {
     throw new Error('missing configuration')
@@ -66,13 +66,14 @@ const createClient = (config: OAuthConfig, accessToken?: Token, idToken?: Token)
 
   const oktaAuthClient = new OktaAuth(oidc);
 
+  oktaAuthClient.authStateManager.subscribe(() => {});
+
   if(accessToken || idToken) {
     try {
-      oktaAuthClient.tokenManager.setTokens({accessToken: accessToken, idToken: idToken } as Tokens);
+      await oktaAuthClient.tokenManager.setTokens({accessToken: accessToken, idToken: idToken } as Tokens);
     } catch (err: any){
       throw new Error(err);
     }
-    
   }
 
   oktaAuthClient.tokenManager.on('expired', async(key: string)=> {
@@ -175,8 +176,7 @@ const parseFromUrl = async (oktaAuthClient: OktaAuth, authRetryKey: string): Pro
   const accessToken = tokens.tokens.accessToken as AccessToken;
   const idToken = tokens.tokens.idToken as IDToken;
 
-  oktaAuthClient.tokenManager.add(accessTokenKey, accessToken);
-  oktaAuthClient.tokenManager.add(idTokenKey, idToken);
+  oktaAuthClient.tokenManager.setTokens(tokens.tokens);
 
   removeRetry(authRetryKey);
   return {

@@ -47,7 +47,7 @@ const AuthProvider = (props: AuthProviderProps) => {
     }
     
     getAuth();
-  },[authState, props])
+  },[])
 
   return (
     <AuthContext.Provider value={authState.authClient}>
