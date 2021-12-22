@@ -9,18 +9,27 @@ export interface UserComponentProps {
 
 export const UserComponent = (props : UserComponentProps) => {
   return( 
-    <div className="card item">
-      <div className="user-header">
-        <strong>#{props.user.id}</strong>
-        <hr></hr>
+    <div className="card">
+      <div className="cloud">
+        <div className="user-container">
+          <div className="user">
+            <div className="first-name">
+              {props.user.firstName}
+            </div>
+            <div className="last-name">
+              {props.user.lastName}
+            </div>
+          </div>
+          <div className="user">
+            <div className="email">
+              {props.user.email}
+            </div>
+          </div>
+        </div>
+        <button className="user-delete-btn" onClick={() => props.deleteUser(props.user.id)}>
+          Delete
+        </button>
       </div>
-      <div className= "user-container">
-        <div>Name: {props.user.firstName} {props.user.lastName}</div>
-        <div>Email: {props.user.email}</div>
-      </div>
-      <button onClick={() => props.deleteUser(props.user.id)}>
-        Delete
-      </button>
     </div>
   );
 }
